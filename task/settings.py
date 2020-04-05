@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'task.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'Cluster0',
-        'HOST': 'mongodb://abhijeet:2!TJ86t#4@3!t&f@cluster0-shard-00-00-jprkb.mongodb.net:27017,cluster0-shard-00-01-jprkb.mongodb.net:27017,cluster0-shard-00-02-jprkb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
-        'USER': 'abhijeetg40gmail.com',
-        'PASSWORD': '2!TJ86t#4@3!t&f',
+        'NAME': 'django',
+        # 'HOST': 'mongodb://abhijeet:2!TJ86t#4@3!t&f@cluster0-shard-00-00-jprkb.mongodb.net:27017,cluster0-shard-00-01-jprkb.mongodb.net:27017,cluster0-shard-00-02-jprkb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
+        # 'USER': 'abhijeetg40gmail.com',
+        # 'PASSWORD': '2!TJ86t#4@3!t&f',
     }
 }
 

@@ -2,6 +2,7 @@ from djongo import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+
 class Task(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     task_name = models.CharField(max_length=200)
@@ -9,11 +10,8 @@ class Task(models.Model):
     start_date = models.CharField(max_length=50)
     end_date = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now=True)
-    invite = models.ForeginKey(Invite,on_delete=models.CASCADE)
+
     def __str__(self):
         return self.task_name
 
 
-class Invite(models.Model):
-    user = models.ForeginKey(User,on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now=True)
