@@ -9,7 +9,8 @@ from taskmanager.models import Task
 
 
 def index(request):
-    return render(request,'index.html')
+    tasks = Task.objects.all()
+    return render(request,'index.html',{'tasks':tasks})
 
 def login(request):
     if request.method == "POST":
@@ -45,7 +46,10 @@ def dashboard(request):
     return render(request,'dashboard.html',{'tasks':tasks})
 
 def delete(request,id):
-    return render(request,'delete.html')
+    task = Task.objects.get(id=id)
+    task.delete()
+    print(task)
+    return redirect(dashboard)
 
 def create(request):
     if request.method == "POST":
@@ -60,9 +64,16 @@ def create(request):
         
     return render(request,'create.html')
 
-def invite(request):
+def invite(request,id):
+    task = Task.objects.get(id=id)
     users = User.objects.filter(is_staff = False).all()
-    return render(request,'invite.html',{'users':users})
+    return render(request,'invite.html',{'users':users,'task':task})
+
+
+
+def edit(request,id):
+    task = Task.objects.get(id=id)
+    return render(request,'edit.html',{'task':task})
 
 def logout(request):
     auth.logout(request)

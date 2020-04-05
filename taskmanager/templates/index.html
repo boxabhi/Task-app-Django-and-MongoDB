@@ -5,21 +5,18 @@
 <div class="container">
     <h3 class="text-center m-5">All Tasks</h3>
     <div class="row mt-3">
-        <div class="col-lg-4">
-
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        {% for task in tasks %}
+        <div class="col-lg-4" >         
+            <div class="shadow-lg p-3 mb-5 bg-white rounded" style="height:15rem !important">
                 
-               <h2>Task name</h2>
-               <p>Assignment for Python</p> 
-               <p><i class="fas fa-calendar-alt"></i> Start date - </p>
-               <p><i class="fas fa-calendar-alt"></i> End date - </p>
+               <h2>{{task.task_name}}</h2>
+               <p>{{task.task_description}}</p> 
+               <p><i class="fas fa-calendar-alt"></i> Start date - {{task.start_date}} </p>
+               <p><i class="fas fa-calendar-alt"></i> End date - {{task.end_date}}</p>
             
             </div>
-
-
-
-
         </div>
+        {% endfor %}
     </div>
 
 </div>

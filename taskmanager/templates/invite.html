@@ -2,23 +2,23 @@
 {% block content %}
 
 
-<div class="container">
-    <h3 class="text-center m-5 text-info text-uppercase">Invite People for the task</h3>
-    <section class="mx-auto col-8">
-            <div class="list-group">
-               
-                <ul>
-                    {% for user in users %}
-                    <li class="list-group-item list-group-item-action">
-                  {{user.email}}
-                        <button class="btn btn-warning ml-5">Invite</button>
-                    
-                    </li>
-
-                    {% endfor %}
-
-                      </ul>
-
+<div class="container mx-auto">
+    <h1 class="text-center mt-5 text-primary text-uppercase">Invite People for the task</h1>
+    <h2 class="text-center text-primary">Task name - {{task.task_name}}</h2>
+    <section class="mx-auto col-8 mt-4">
+        <div class="list-group">
+            <ul>
+                {% for user in users %}
+                <li class="list-group-item list-group-item-action d-flex">
+                    <div class="col-6">
+                        <p class="h3 ml-5"> {{user.email}}</p>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-warning ml-2 ">Invite</button>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </section>
 </div>

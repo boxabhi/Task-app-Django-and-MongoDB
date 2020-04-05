@@ -3,38 +3,97 @@
 
 
 <div class="container">
-    <h3 class="text-center mt-5">Dashboard   </h3>
-    <p class="text-center">Task created by You</p>
+  <h3 class="text-center mt-5">Dashboard </h3>
+  <p class="text-center">Task created by You</p>
 
-   
 
-    <div class="row mt-3">
-      {% if tasks %}
-      {% for task in tasks %}
-        <div class="col-lg-4">
 
-         
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                
-               <h2>{{task.task_name}}</h2>
-               <p>{{task.task_description}}</p> 
-               <p><i class="fas fa-calendar-alt"></i> Start date - {{task.start_date}} </p>
-               <p><i class="fas fa-calendar-alt"></i> End date - {{task.end_date}}</p>
-            
-            </div>
+  <div class="row mt-3">
+    {% if tasks %}
+    {% for task in tasks %}
+    <div class="col-lg-4">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <h2>{{task.task_name}}</h2>
+        <p>{{task.task_description}}</p>
+        <p><i class="fas fa-calendar-alt"></i> Start date - {{task.start_date}} </p>
+        <p><i class="fas fa-calendar-alt"></i> End date - {{task.end_date}}</p>
+        <div class="d-flex">
+        <a href="invite/{{task.id}}" class="btn btn-info">Invite</a>
+        <a href="edit/{{task.id}}" class="btn btn-warning" >Edit</a>
+        <a href="delete/{{task.id}}" class="btn btn-danger">Delete</a>
         </div>
-        {% endfor %}
-        {% else %}
-        <div class="container mx-auto text-center mt-5 pt-3">
-        <h1>Look like you have't created any task yet </h1>
-        <h3>Create one</h3>
-        <a href="/create-task" class="btn btn-primary text-uppercase mt-3">Create</a>
-        </div>
-
-        {% endif %}
+      </div>
     </div>
-    
-     
+    {% endfor %}
+    {% else %}
+    <div class="container mx-auto text-center mt-5 pt-3">
+      <h1>Look like you have't created any task yet </h1>
+      <h3>Create one</h3>
+      <a href="/create-task" class="btn btn-primary text-uppercase mt-3">Create</a>
+    </div>
+
+    {% endif %}
+  </div>
+
+
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Edit Task</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-pencil-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Task name" name="name">
+  
+          </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-edit"></i></span>
+            </div>
+            <textarea type="text" class="form-control" placeholder="Task Description" name="desc"></textarea>
+          </div>
+  
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="date" class="form-control" placeholder="Task Start Date" name="start">
+  
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-calendar-alt"></i></span>
+            </div>
+            <input type="date" class="form-control" placeholder="Task End Date" name="end">
+  
+          </div>
+  
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+
+    </div>
+  </div>
 </div>
 
 
