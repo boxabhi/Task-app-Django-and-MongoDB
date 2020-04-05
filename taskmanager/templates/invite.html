@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h3 class="text-center m-5 text-info text-uppercase">Invite People for the task</h3>
+    <section class="mx-auto col-8">
+            <div class="list-group">
+               
+                <ul>
+                    {% for user in users %}
+                    <li class="list-group-item list-group-item-action">
+                  {{user.email}}
+                        <button class="btn btn-warning ml-5">Invite</button>
+                    
+                    </li>
+
+                    {% endfor %}
+
+                      </ul>
+
+        </div>
+    </section>
+</div>
+
+
+
+
+{% endblock %}

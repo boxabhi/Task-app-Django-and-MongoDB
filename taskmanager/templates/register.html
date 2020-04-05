@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h3 class="text-center m-5">Register</h3>
+   
+    
+    <section class="mx-auto col-5">
+      {% if message %}
+      <div class="alert alert-success" role="alert">
+      {{message}}
+      </div>
+{% endif %}
+        <div class="shadow p-3 mb-5 bg-white rounded p-4 ">
+
+            <form method="POST">
+              {% csrf_token %}
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" 
+                placeholder="Username" name="username">
+
+              </div>
+
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" 
+                    placeholder="Email" name="email">
+
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" 
+                    placeholder="Password" name="password">
+
+                  </div>
+
+                  <p>Already a member <a href="/login">Login</a></p>
+                
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+
+        </div>
+    </section>
+
+</div>
+
+
+
+
+
+{% endblock %}

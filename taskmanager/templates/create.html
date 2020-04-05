@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <h3 class="text-center m-5">Create new Task</h3>
+   
+    
+    <section class="mx-auto col-7">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded ">
+          {% if message %}
+          <div class="alert alert-success" role="alert">
+          {{message}}
+          </div>
+    {% endif %}
+            <form method="post">
+              {% csrf_token %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                          <i class="fas fa-pencil-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" 
+                    placeholder="Task name" name="name">
+
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-edit"></i></span>
+                    </div>
+                    <textarea type="text" class="form-control" 
+                    placeholder="Task Description" name="desc"></textarea>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="date" class="form-control" 
+                    placeholder="Task Start Date" name="start">
+
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="date" class="form-control" 
+                    placeholder="Task End Date" name="end">
+
+                  </div>
+                 
+                <button type="submit" class="btn btn-danger">Create</button>
+            </form>
+
+        </div>
+    </section>
+
+</div>
+
+
+
+
+
+{% endblock %}
